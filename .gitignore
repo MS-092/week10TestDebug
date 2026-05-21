@@ -1,0 +1,36 @@
+# macOS
+.DS_Store
+*.pem
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Debug logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# PDFs and transcripts (generated/downloaded)
+*.pdf
+*.txt
+
+# Images (screenshots, assets)
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Root-level Reactotron config (handled by sub-projects)
+ReactotronConfig.js
+
+# Temp files
+*.tmp
+*.bak
