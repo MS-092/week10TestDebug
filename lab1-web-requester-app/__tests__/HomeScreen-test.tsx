@@ -1,5 +1,15 @@
 import { render, screen } from '@testing-library/react-native';
 import HomeScreen from '@/app/(tabs)/index';
+
+// Mock Reactotron for test environment (prevents XMLHttpRequest errors in Node)
+jest.mock('reactotron-react-native', () => {
+  const chain = {
+    configure: () => chain,
+    useReactNative: () => chain,
+    connect: () => chain,
+  };
+  return { __esModule: true, default: chain };
+});
 import 'jest-styled-components';
 import 'jest-styled-components/native';
 
