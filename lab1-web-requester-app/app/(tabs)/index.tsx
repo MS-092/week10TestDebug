@@ -1,4 +1,4 @@
-if (process.env.NODE_ENV !== 'test') {
+if (__DEV__) {
   require("../../ReactotronConfig");
 }
 import React, { useState } from 'react';
@@ -14,6 +14,12 @@ export default function HomeScreen() {
   const goRequest = () => {
     if (!url.trim()) {
       setWebData('Please enter a valid URL');
+      return;
+    }
+
+    // Enforce HTTPS
+    if (!url.startsWith('https://')) {
+      setWebData('Only HTTPS URLs are allowed for security');
       return;
     }
 
@@ -49,7 +55,8 @@ export default function HomeScreen() {
       xhr.timeout = 10000; // 10 second timeout
       xhr.send();
     } catch (error) {
-      setWebData(`✗ Error: ${error instanceof Error ? error.message : 'Unknown error occurred'}`);
+      console.error('Request error:', error);
+      setWebData('✗ Request Failed\n\nSomething went wrong. Please try again.');
       setIsLoading(false);
     }
   };

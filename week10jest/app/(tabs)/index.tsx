@@ -9,8 +9,8 @@ export default function HomeScreen() {
   
 const [loginout, setloginout] = useState('Login');
 const [created, setCreate] = useState('create');
-const [pword, setPword] = useState('password');
-const [email, setEmail] = useState('email@mail.com');
+const [pword, setPword] = useState('');
+const [email, setEmail] = useState('');
 
 let n = 0;
 
@@ -23,7 +23,7 @@ async function debug(tag: String, str: String) {
 function loginA() {
   setEmail(email);
   setPword(pword);
-    debug("loginA", "login: " + email + " password: " + pword + "success");   
+    debug("loginA", "login: " + email + " success");   
 }
 
 
@@ -31,18 +31,18 @@ function createA() {
   setEmail(email);
   setPword(pword);
   setCreate('created');
-    debug("createA", "created: "  + email + " password: " + pword);      
+    debug("createA", "created: "  + email);      
 }
 
 function logoutA() {
   setEmail(email);
   setPword(pword);
-  debug("createA", "created: "  + email + " password: " + pword);      
+  debug("logoutA", "logout: "  + email);      
 }
 function deleteA() {
   setEmail(email);
   setPword(pword);
-  debug("deleteA", "Delete: "  + email + " password: " + pword);      
+  debug("deleteA", "Delete: "  + email);      
 
 }
 
